@@ -1,10 +1,7 @@
 package com.example.ShopWeb.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "products_images")
@@ -12,16 +9,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfuctImage {
+@Builder
+public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "prdduct_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name = "images_url")
-    private String imagesUrl;
+    @Column(name = "image_url", length = 300)
+    private String imageUrl;
 
 }
