@@ -3,14 +3,16 @@ package com.example.ShopWeb.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity
-@Table(name = "products_images")
+@Table(name = "product_images")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class ProductImage {
+    public static final int MAXIMUM_IMAGES_PER_PRODUCT = 5;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

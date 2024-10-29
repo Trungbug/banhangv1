@@ -55,11 +55,15 @@ public class ProductController {
     //POST http://localhost:8088/v1/api/products
     public ResponseEntity<?> uploadImages(
             @PathVariable("id") Long productId,
-            @ModelAttribute("files") List<MultipartFile> files
+            @RequestParam("files") List<MultipartFile> files
     ){
         try {
+
             Product existingProduct = productService.getProductById(productId);
             files = files == null ? new ArrayList<MultipartFile>() : files;
+            if(files.size()>=ProductImage.MAXIMUM_IMAGES_PER_PRODUCT){
+                return ResponseEntity.badRequest().body("you only can add 5 images");
+            }
             List<ProductImage> productImages = new ArrayList<>();
             for (MultipartFile file : files) {
                 if(file.getSize() == 0) {
@@ -91,7 +95,14 @@ public class ProductController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    private boolean isImageFile(MultipartFile file) {
+        String contentType = file.getContentType();
+        return contentType != null && contentType.startsWith("image/");
+    }
     private String storeFile(MultipartFile file) throws IOException {
+        if (!isImageFile(file) || file.getOriginalFilename() == null) {
+            throw new IOException("Invalid image format");
+        }
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         // Thêm UUID vào trước tên file để đảm bảo tên file là duy nhất
         String uniqueFilename = UUID.randomUUID().toString() + "_" + filename;

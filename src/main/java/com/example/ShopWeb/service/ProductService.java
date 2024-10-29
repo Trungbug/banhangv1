@@ -91,7 +91,7 @@ public class ProductService implements IProductService {
                 .imageUrl(productImageDTO.getImageUrl())
                 .build();
         int size=productImageRepository.findByProductId(productId).size();
-        if(size>5){
+        if(size>ProductImage.MAXIMUM_IMAGES_PER_PRODUCT){
             throw new InvalidParamException("Number of images must be <= 5");
         }
 
