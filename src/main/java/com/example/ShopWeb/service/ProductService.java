@@ -10,6 +10,7 @@ import com.example.ShopWeb.Model.ProductImage;
 import com.example.ShopWeb.repositoies.CategoryRepository;
 import com.example.ShopWeb.repositoies.ProductImageRepository;
 import com.example.ShopWeb.repositoies.ProductRepository;
+import com.example.ShopWeb.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,6 +36,7 @@ public class ProductService implements IProductService {
                                 .name(productDTO.getName())
                                 .price(productDTO.getPrice())
                                 .thumbnail(productDTO.getThumbnail())
+                                .description(productDTO.getDescription())
                                 .category(existingCategory)
                                 .build();
         return productRepository.save(newProduct);
@@ -47,8 +49,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Page<Product> getAllProducts(PageRequest pageRequest) {
-        return productRepository.findAll(pageRequest);
+    public Page<ProductResponse> getAllProducts(PageRequest pageRequest) {
+        return productRepository.findAll(pageRequest).map(ProductResponse::fromProduct);
     }
 
     @Override
@@ -77,8 +79,7 @@ public class ProductService implements IProductService {
 
     @Override
     public boolean existsByName(String name) {
-        productRepository.existsByName(name);
-        return false;
+        return productRepository.existsByName(name);
     }
 
     @Override
