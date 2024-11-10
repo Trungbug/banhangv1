@@ -2,6 +2,7 @@ package com.example.ShopWeb.service;
 
 import com.example.ShopWeb.DTO.UserDTO;
 import com.example.ShopWeb.Exeption.DataNotFoundException;
+import com.example.ShopWeb.Exeption.PermissionDenyException;
 import com.example.ShopWeb.Model.Role;
 import com.example.ShopWeb.Model.User;
 import com.example.ShopWeb.components.JwtTokenUtil;
@@ -26,10 +27,15 @@ public class UserService implements IUserService {
     private final UserRepository userRepository;
 
     @Override
-    public User createUser(UserDTO userDTO) throws DataNotFoundException {
+    public User createUser(UserDTO userDTO) throws Exception {
         String phoneNumber= userDTO.getPhoneNumber();
         if(userRepository.existsByPhoneNumber(phoneNumber)) {
             throw new DataIntegrityViolationException("Phone number already exists");
+        }
+        Role role =roleRepository.findById(userDTO.getRoleId())
+                .orElseThrow(() -> new DataNotFoundException("Role not found"));
+        if(role.getName().toUpperCase().equals(Role.ADMIN)) {
+            throw new PermissionDenyException("You cannot register an admin account");
         }
         //convert from userDTO => user
         User newUser = User.builder()
@@ -41,8 +47,6 @@ public class UserService implements IUserService {
                 .facebookAccountId(userDTO.getFacebookAccountId())
                 .googleAccountId(userDTO.getGoogleAccountId())
                 .build();
-        Role role =roleRepository.findById(userDTO.getRoleId())
-                .orElseThrow(() -> new DataNotFoundException("Role not found"));
         newUser.setRole(role);
 
         if (userDTO.getFacebookAccountId() == 0 && userDTO.getGoogleAccountId() == 0) {
