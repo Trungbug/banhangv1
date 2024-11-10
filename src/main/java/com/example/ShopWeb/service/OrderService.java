@@ -2,15 +2,13 @@ package com.example.ShopWeb.service;
 
 import com.example.ShopWeb.DTO.OrderDTO;
 import com.example.ShopWeb.Exeption.DataNotFoundException;
-import com.example.ShopWeb.Model.Order;
-import com.example.ShopWeb.Model.OrderStatus;
-import com.example.ShopWeb.Model.User;
+import com.example.ShopWeb.Entity.Order;
+import com.example.ShopWeb.Entity.OrderStatus;
+import com.example.ShopWeb.Entity.User;
 import com.example.ShopWeb.repositoies.OrderRepository;
 import com.example.ShopWeb.repositoies.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.internal.bytebuddy.implementation.bytecode.Throw;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

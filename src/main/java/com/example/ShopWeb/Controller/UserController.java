@@ -3,11 +3,10 @@ package com.example.ShopWeb.Controller;
 
 import com.example.ShopWeb.DTO.UserDTO;
 import com.example.ShopWeb.DTO.UserLoginDTO;
-import com.example.ShopWeb.Model.User;
+import com.example.ShopWeb.Entity.User;
 import com.example.ShopWeb.service.IUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

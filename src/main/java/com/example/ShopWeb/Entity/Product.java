@@ -1,9 +1,7 @@
-package com.example.ShopWeb.Model;
+package com.example.ShopWeb.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")

@@ -1,7 +1,6 @@
 package com.example.ShopWeb.response;
 
-import com.example.ShopWeb.Model.Order;
-import com.example.ShopWeb.Model.OrderDetail;
+import com.example.ShopWeb.Entity.OrderDetail;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 

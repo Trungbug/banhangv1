@@ -1,11 +1,10 @@
 package com.example.ShopWeb.service;
 
 import com.example.ShopWeb.DTO.CategoryDTO;
-import com.example.ShopWeb.Model.Category;
+import com.example.ShopWeb.Entity.Category;
 import com.example.ShopWeb.repositoies.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestAttribute;
 
 import java.util.List;
 

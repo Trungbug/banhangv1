@@ -2,7 +2,7 @@ package com.example.ShopWeb.service;
 
 import com.example.ShopWeb.DTO.OrderDTO;
 import com.example.ShopWeb.Exeption.DataNotFoundException;
-import com.example.ShopWeb.Model.Order;
+import com.example.ShopWeb.Entity.Order;
 
 import java.util.List;
 

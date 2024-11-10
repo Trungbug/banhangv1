@@ -1,7 +1,7 @@
 package com.example.ShopWeb.Controller;
 
 import com.example.ShopWeb.DTO.OrderDTO;
-import com.example.ShopWeb.Model.Order;
+import com.example.ShopWeb.Entity.Order;
 import com.example.ShopWeb.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.ShopWeb.Controller;
 
 import com.example.ShopWeb.DTO.CategoryDTO;
-import com.example.ShopWeb.Model.Category;
+import com.example.ShopWeb.Entity.Category;
 import com.example.ShopWeb.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

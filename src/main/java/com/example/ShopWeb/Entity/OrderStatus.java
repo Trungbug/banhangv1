@@ -1,4 +1,4 @@
-package com.example.ShopWeb.Model;
+package com.example.ShopWeb.Entity;
 
 public class OrderStatus {
     public static final String PENDING = "pending";

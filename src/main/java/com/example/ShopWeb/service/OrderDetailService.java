@@ -2,9 +2,9 @@ package com.example.ShopWeb.service;
 
 import com.example.ShopWeb.DTO.OrderDetailDTO;
 import com.example.ShopWeb.Exeption.DataNotFoundException;
-import com.example.ShopWeb.Model.Order;
-import com.example.ShopWeb.Model.OrderDetail;
-import com.example.ShopWeb.Model.Product;
+import com.example.ShopWeb.Entity.Order;
+import com.example.ShopWeb.Entity.OrderDetail;
+import com.example.ShopWeb.Entity.Product;
 import com.example.ShopWeb.repositoies.OrderDetailRepository;
 import com.example.ShopWeb.repositoies.OrderRepository;
 import com.example.ShopWeb.repositoies.ProductRepository;

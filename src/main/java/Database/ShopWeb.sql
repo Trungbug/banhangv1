@@ -1,5 +1,5 @@
-
-use banhang;
+create database banhang1;
+use banhang1;
 
 CREATE TABLE users(
                       id INT PRIMARY KEY AUTO_INCREMENT,
@@ -111,3 +111,19 @@ CREATE TABLE order_details(
                               total_money FLOAT CHECK(total_money >= 0),
                               color VARCHAR(20) DEFAULT ''
 );
+-- Bảng lưu trữ các mẫu mã sản phẩm như màu sắc, kích cỡ
+CREATE TABLE products_item (
+                               id INT PRIMARY KEY AUTO_INCREMENT,
+                               name_item VARCHAR(255) NOT NULL COMMENT 'Tên mẫu mã sản phẩm, vd: màu đỏ, kích cỡ XL'
+);
+CREATE TABLE products_item_relation (
+                                        id_relation INT PRIMARY KEY AUTO_INCREMENT,
+                                        product_id INT NOT NULL,
+                                        item_id INT NOT NULL,
+                                        FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+                                        FOREIGN KEY (item_id) REFERENCES products_item(id) ON DELETE CASCADE
+);
+ALTER TABLE order_details
+    DROP COLUMN color
+-- Bỏ cột cũ nếu cần
+

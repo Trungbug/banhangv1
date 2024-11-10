@@ -1,6 +1,6 @@
 package com.example.ShopWeb.filters;
 
-import com.example.ShopWeb.Model.User;
+import com.example.ShopWeb.Entity.User;
 import com.example.ShopWeb.components.JwtTokenUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -3,13 +3,11 @@ package com.example.ShopWeb.Controller;
 
 import com.example.ShopWeb.DTO.ProductDTO;
 import com.example.ShopWeb.DTO.ProductImageDTO;
-import com.example.ShopWeb.Model.Product;
-import com.example.ShopWeb.Model.ProductImage;
-import com.example.ShopWeb.repositoies.ProductRepository;
+import com.example.ShopWeb.Entity.Product;
+import com.example.ShopWeb.Entity.ProductImage;
 import com.example.ShopWeb.response.ProductListResponse;
 import com.example.ShopWeb.response.ProductResponse;
 import com.example.ShopWeb.service.IProductService;
-import com.example.ShopWeb.service.ProductService;
 import com.github.javafaker.Faker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -210,4 +208,6 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+
 }

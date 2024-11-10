@@ -1,7 +1,7 @@
 package com.example.ShopWeb.repositoies;
 
 
-import com.example.ShopWeb.Model.Product;
+import com.example.ShopWeb.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.domain.*;
 

@@ -1,6 +1,6 @@
 package com.example.ShopWeb.response;
 
-import com.example.ShopWeb.Model.Product;
+import com.example.ShopWeb.Entity.Product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
