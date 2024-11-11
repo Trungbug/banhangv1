@@ -1,15 +1,20 @@
 package com.example.ShopWeb.Entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Data//toString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name="product_item_relation")
 public class ProductItemRelation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRelation;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)

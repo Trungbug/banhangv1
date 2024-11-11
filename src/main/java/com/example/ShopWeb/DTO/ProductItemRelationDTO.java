@@ -11,6 +11,6 @@ public class ProductItemRelationDTO {
         private Long idRelation;
         private Long productId;  // ID của sản phẩm
         private Long itemId;     // ID của mẫu mã sản phẩm
-        private String itemName; // Tên của mẫu mã sản phẩm
+
 }
 

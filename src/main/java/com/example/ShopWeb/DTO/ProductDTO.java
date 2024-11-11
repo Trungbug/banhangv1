@@ -32,6 +32,8 @@ public class ProductDTO {
     @JsonProperty("category_id")
     private Long categoryId;
 
+    @JsonProperty("product_items")
+    private List<ProductItemDTO> items;
 
 
 }
